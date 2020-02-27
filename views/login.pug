@@ -1,0 +1,27 @@
+extends layout_full
+
+block content  
+  body.hold-transition.login-page
+    .login-box
+      .login-logo
+        a(href='#')
+          b Lapto
+          | SOFT
+      .card
+        .card-body.login-card-body
+          p.login-box-msg Sign in to start your session
+          form(action='../../index3.html', method='post')
+            .input-group.mb-3
+              input.form-control(type='text', placeholder='Username')
+              .input-group-append
+                .input-group-text
+                  span.fas.fa-envelope
+            .input-group.mb-3
+              input.form-control(type='password', placeholder='Password')
+              .input-group-append
+                .input-group-text
+                  span.fas.fa-lock
+            .social-auth-links.text-center.mb-3
+              a.btn.btn-block.btn-primary(href='#')
+                i
+                |  Sign in

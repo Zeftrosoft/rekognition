@@ -1,0 +1,115 @@
+extends layout
+
+block content
+  // Main content
+  .content
+    .container-fluid
+      .row
+        .col-md-6
+          .card.card-primary.card-outline
+            .card-header
+              h5.m-0 Processor
+                button.btn.btn-sm.btn-primary(style='float: right;' onclick="addProcessor(null)")
+                  .fa.fa-plus
+                  |   Add Processor
+
+            .card-body
+              table#processorTable.table.table-bordered.table-striped
+        .col-md-6
+          .card.card-primary.card-outline
+            .card-header
+              h5.m-0 Ram
+                button.btn.btn-sm.btn-primary(style='float: right;' onclick="addRam(null)")
+                  .fa.fa-plus
+                  |   Add Ram
+
+            .card-body
+              table#ramTable.table.table-bordered.table-striped
+      .row
+        .col-md-6
+          .card.card-primary.card-outline
+            .card-header
+              h5.m-0 SpareType
+                button.btn.btn-sm.btn-primary(style='float: right;' onclick="addSpareType(null)")
+                  .fa.fa-plus
+                  |   Add SpareType
+
+            .card-body
+              table#sparetypeTable.table.table-bordered.table-striped   
+        .col-md-6
+          .card.card-primary.card-outline
+            .card-header
+              h5.m-0 ItemType
+                button.btn.btn-sm.btn-primary(style='float: right;' onclick="addItemType(null)")
+                  .fa.fa-plus
+                  |   Add ItemType
+
+            .card-body
+              table#itemtypeTable.table.table-bordered.table-striped  
+      .row
+        .col-md-6
+          .card.card-primary.card-outline
+            .card-header
+              h5.m-0 Screen
+                button.btn.btn-sm.btn-primary(style='float: right;' onclick="addScreen(null)")
+                  .fa.fa-plus
+                  |   Add Screen
+
+            .card-body
+              table#screenTable.table.table-bordered.table-striped 
+
+        .col-md-6
+          .card.card-primary.card-outline
+            .card-header
+              h5.m-0 Storage
+                button.btn.btn-sm.btn-primary(style='float: right;' onclick="addStorage(null)")
+                  .fa.fa-plus
+                  |   Add Storage
+
+            .card-body
+              table#storageTable.table.table-bordered.table-striped
+      .row
+        .col-md-6
+          .card.card-primary.card-outline
+            .card-header
+              h5.m-0 Brand
+                button.btn.btn-sm.btn-primary(style='float: right;' onclick="addBrand(null)")
+                  .fa.fa-plus
+                  |   Add Brand
+
+            .card-body
+              table#brandTable.table.table-bordered.table-striped 
+              
+        .col-md-6
+          .card.card-primary.card-outline
+            .card-header
+              h5.m-0 ModelNo
+                button.btn.btn-sm.btn-primary(style='float: right;' onclick="addModelNo(null)")
+                  .fa.fa-plus
+                  |   Add ModelNo
+
+            .card-body
+              table#modelnoTable.table.table-bordered.table-striped       
+            
+
+block append scripts
+  script(src='dist/js/pages/processor.js')
+  script(src='dist/js/pages/ram.js')
+  script(src='dist/js/pages/sparetype.js')
+  script(src='dist/js/pages/itemtype.js')
+  script(src='dist/js/pages/screen.js')
+  script(src='dist/js/pages/storage.js')
+  script(src='dist/js/pages/brand.js')
+  script(src='dist/js/pages/modelno.js')
+
+  script.
+    $(function () {
+      getAllProcessors()
+      getAllRams()
+      getAllSpareTypes()
+      getAllItemTypes()
+      getAllScreens()
+      getAllStorages()
+      getAllBrands()
+      getAllModelNos()
+    });
