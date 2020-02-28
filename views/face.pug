@@ -2,6 +2,13 @@ extends layout
 
 block content  
   // Main content
+  style.
+    .red {
+    border: solid 3px red
+    }
+    .green {
+    border: solid 3px green
+    }
   .content
     .container(style='max-width: 100% !important;')
       .row
@@ -9,12 +16,12 @@ block content
           .card
             .card-header
               h3.card-title(style='font-weight:bolder;') Predicted Images
-              button.btn.btn-success.float-right(style='margin-right:10px;', onclick='refreshEnrolled()') Refresh Images
             .card-body
+            .row
               each row in details
-                .col-sm-2(style="border: solid 3px (#{row.isMatched}.status ?'red': 'green')")
-                  label(style='display: flow-root; font-size: small;', for=_id)=row.day + '/' + row.month + '/' + row.year + ' ' + row.hour + ':' + row.min
-                  img.img-fluid(src=row.image_path, alt='Photo', id=row._id)
+                .col-sm-2()
+                  label( style='display: flow-root; font-size: small;', for=_id)=row.day + '/' + row.month + '/' + row.year + ' ' + row.hour + ':' + row.min
+                  img.img-fluid(class=row.isMatched ?'green': 'red', src=row.image_path, alt='Photo', id=row._id)
                   label(for=_id)=row.matched_name
                   br
                   label(for=_id)= 'Similarity: '+row.similarity

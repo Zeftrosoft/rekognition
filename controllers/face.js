@@ -4,15 +4,15 @@ var config = require('../config')
 
 var FaceSchema = new Schema({
   image_path: String,
-  day: 0,
-  month:0,
-  year :0,
-  hour :0,
-  min :0,
+  day: Number,
+  month:Number,
+  year :Number,
+  hour :Number,
+  min :Number,
   isMatched: Boolean,
-  matched_name:String,
-  similarity:0,
-  confidance:0
+  matched_name: String,
+  similarity: Number,
+  confidance: Number
 },{collection:config.tables.FACE})
 
 var Face = module.exports = mongoose.model('Face',FaceSchema,config.tables.FACE);
@@ -32,6 +32,7 @@ module.exports.index = (req, res) => {
       retObj.details = faces;
       retObj.title = "Faces"
       res.render('face',retObj )
+      //res.json(retObj )
     }
   });
  
@@ -75,7 +76,6 @@ module.exports.getFaceById = (req, res) => {
 }
 
 module.exports.upsertFace = (req, res) => {
-  console.log('Error O')
   var face = req.body
   console.log(face);
   var retObj = {

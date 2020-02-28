@@ -7,8 +7,6 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 require('dotenv').config();
 
-
-var accountController = require('./controllers/account');
 var faceController = require('./controllers/face');
 
 
@@ -31,17 +29,13 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   next();
 });
-var path = process.env.LOCAL_DB_STRING
+var path = process.env.ONLINE_DB_STRING
 
 mongoose.connect(path, function (err, db) {
     if(err) console.log(err);
     else console.log('Connected To Db')
 });
 
-app.get('/account', accountController.index)
-app.get('/account/all', accountController.getAllAccounts)
-app.get('/account/id/:_id', accountController.getAccountById)
-app.post('/account', accountController.upsertAccount)
 app.get('/face', faceController.index)
 app.get('/face/all', faceController.getAllFaces)
 app.get('/face/id/:_id', faceController.getFaceById)
