@@ -23,18 +23,20 @@ module.exports.index = (req, res) => {
     message: "Err Querying database while fetching faces, Try again",
     details: []
   };
-  Face.find({}, {__v:0},(err, faces)=>{
-    if(err) {
-      res.json(retObj)
-    } else {
+  Face.find({}, {__v:0}).sort({_id: -1}).exec()
+  .then(faces =>{
       retObj.status = true;
       retObj.message = "Found All Faces";
       retObj.details = faces;
       retObj.title = "Faces"
       res.render('face',retObj )
       //res.json(retObj )
-    }
-  });
+  })
+  .catch(err => {
+    console.log('Error Occured While getting all faces');
+    console.log(err);
+    res.json(retObj)
+  })
  
 }
 
