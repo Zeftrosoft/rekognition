@@ -16,6 +16,7 @@ block content
           .card
             .card-header
               h3.card-title(style='font-weight:bolder;') Predicted Images
+              a.btn.btn-success.float-right(style='margin-right:10px;', href='/face/removeall') Remove All Images
             .card-body
             .row
               each row in details
@@ -25,4 +26,5 @@ block content
                   label(for=_id)=row.matched_name
                   br
                   label(for=_id)= 'Similarity: '+row.similarity
+                  br
                   label(for=_id)= 'Confidance: '+row.confidance

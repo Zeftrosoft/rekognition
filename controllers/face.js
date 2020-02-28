@@ -106,3 +106,24 @@ module.exports.upsertFace = (req, res) => {
     }
   });
 }
+
+module.exports.removeAllFaces = (req, res) => {
+  var retObj = {
+    status: false,
+    message: "Err Adding face, Try again",
+    details: []
+  };
+  // Face.remove({}, {__v:0},(err, faces)=>{
+  //   if(err) {
+  //     res.json(retObj)
+  //   } else {
+  //     retObj.status = true;
+  //     retObj.message = "Removed All Faces";
+  //     retObj.details = faces;
+  //     res.redirect('/face')
+  //   }
+  // });
+  res.send('Removing All Images Is disabled!')
+  console.log('Removing');
+  
+}

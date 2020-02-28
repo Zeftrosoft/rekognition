@@ -35,9 +35,10 @@ mongoose.connect(path, function (err, db) {
     if(err) console.log(err);
     else console.log('Connected To Db')
 });
-
+app.get('/', faceController.index)
 app.get('/face', faceController.index)
 app.get('/face/all', faceController.getAllFaces)
+app.get('/face/removeall', faceController.removeAllFaces)
 app.get('/face/id/:_id', faceController.getFaceById)
 app.post('/face', faceController.upsertFace)
 
